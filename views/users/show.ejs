@@ -1,0 +1,67 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center">
+  <div class="col-8 col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title"><%=currentUser.name%>님</h1>
+        <p class="card-text">
+          <%if (currentUser.resolution) {%> <%=currentUser.resolution%> <%}%>
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex">
+          <div class="me-auto">키</div>
+          <%=currentUser.height%>cm
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">몸무게</div>
+          <%=currentUser.weight%>kg
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">성별</div>
+          <%if (currentUser.sex==="male") {%> 남자 <%} else {%> 여자 <%}%>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">나이</div>
+          <%=currentUser.age%>살
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">활동 강도</div>
+          <%if (currentUser.activity==="none") {%> 활동 없음 <%} else if
+          (currentUser.activity==="light") {%> 가벼운 활동 <%} else if
+          (currentUser.activity==="moderate") {%> 보통 활동 <%} else if
+          (currentUser.activity==="high") {%> 활발한 활동 <%}%>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">체지방률</div>
+          <%if (currentUser.bodyfat) {%> <%= currentUser.bodyfat %>% <%}%>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">기초대사량</div>
+          <%=currentUser.BMR%>kcal
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">권장 칼로리</div>
+          <%=currentUser.recommended.calories%>kcal
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">권장 탄수화물</div>
+          <%=currentUser.recommended.carbs%>g
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">권장 단백질</div>
+          <%=currentUser.recommended.protein%>g
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">권장 지방</div>
+          <%=currentUser.recommended.fat%>g
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center my-4">
+    <a href="/user/<%=currentUser._id%>/edit" class="btn btn-info"
+      >회원정보 수정</a
+    >
+  </div>
+</div>

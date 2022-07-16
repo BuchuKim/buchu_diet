@@ -1,0 +1,150 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center my-3">
+  <div class="col-8 col-md-4">
+    <div class="d-flex justify-content-center mb-3">
+      <h1>&#127860; 음식 수정!</h1>
+    </div>
+    <br />
+    <form
+      action="/food/<%=food._id%>?_method=put"
+      method="post"
+      class="needs-validation"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label"><h6>음식 이름</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          value="<%=food.name%>"
+          aria-describedby="nameHelp"
+          required
+        />
+        <div class="invalid-feedback">음식 이름을 입력해주세요!</div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-9">
+          <label for="kcal" class="form-label"><h6>열량(kcal)</h6></label>
+          <input
+            type="text"
+            class="form-control"
+            id="kcal"
+            name="calories"
+            value="<%=food.calories%>"
+            aria-describedby="kcalHelp"
+            required
+          />
+          <div id="kcalHelp" class="form-text">단위당 열량을 입력해주세요.</div>
+          <div class="invalid-feedback">열량을 입력해주세요!</div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="serving" class="form-label"><h6>단위</h6></label>
+            <select
+              class="form-select"
+              aria-label="serving"
+              name="serving"
+              required
+            >
+              <option <%=food.serving==="g"?"selected":""%> value="g">100g</option>
+              <option <%=food.serving==="개"?"selected":""%> value="개">1개</option>
+              <option <%=food.serving==="회"?"selected":""%> value="회">1회</option>
+            </select>
+            <div class="invalid-feedback">단위를 선택해주세요!</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="carbs" class="form-label"><h6>탄수화물(g)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="carbs"
+          name="carbs"
+          value="<%=food.carbs%>"
+          aria-describedby="carbsHelp"
+          required
+        />
+        <div id="carbsHelp" class="form-text">
+          단위당 탄수화물 양을 입력해주세요.
+        </div>
+        <div class="invalid-feedback">탄수화물 양을 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="sugar" class="form-label"><h6>당(g)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="sugar"
+          name="sugar"
+          value="<%=food.sugar%>"
+          aria-describedby="sugarHelp"
+        />
+        <div id="sugarHelp" class="form-text">
+          단위당 설탕 양을 입력해주세요. (선택)
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="protein" class="form-label"><h6>단백질(g)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="protein"
+          name="protein"
+          value="<%=food.protein%>"
+          aria-describedby="proteinHelp"
+          required
+        />
+        <div id="proteinHelp" class="form-text">
+          단위당 단백질 양을 입력해주세요.
+        </div>
+        <div class="invalid-feedback">단백질 양을 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="fat" class="form-label"><h6>지방(g)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="fat"
+          name="fat"
+          value="<%=food.fat%>"
+          aria-describedby="fatHelp"
+          required
+        />
+        <div id="fatHelp" class="form-text">단위당 지방 양을 입력해주세요.</div>
+        <div class="invalid-feedback">지방 양을 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="saturated" class="form-label"><h6>포화지방(g)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="saturated"
+          name="saturated"
+          value="<%=food.saturated%>"
+          aria-describedby="saturatedHelp"
+        />
+        <div id="saturatedHelp" class="form-text">
+          단위당 포화지방 양을 입력해주세요. (선택)
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label"><h6>음식 설명</h6></label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          rows="3"
+        >
+<%=food.description%></textarea
+        >
+      </div>
+      <div class="d-flex justify-content-center my-4">
+        <button type="submit" class="btn btn-primary">수정하기</button>
+      </div>
+    </form>
+  </div>
+</div>

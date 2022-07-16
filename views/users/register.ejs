@@ -1,0 +1,177 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center my-3">
+  <div class="col-md-4 col-8">
+    <div class="d-flex justify-content-center mb-3">
+      <h1>가입하기</h1>
+    </div>
+    <form
+      action="/user/register"
+      method="post"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label"><h6>이름(닉네임)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          aria-describedby="nameHelp"
+          required
+        />
+        <div class="invalid-feedback">이름을 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label"><h6>이메일</h6></label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          aria-describedby="emailHelp"
+          required
+        />
+        <div class="invalid-feedback">이메일을 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label"><h6>비밀번호</h6></label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          aria-describedby="pwHelp"
+          required
+        />
+        <div id="pwHelp" class="form-text">
+          3자리 ~ 30자리의 숫자와 알파벳으로 이뤄진 비밀번호를 설정해주세요.
+        </div>
+        <div class="invalid-feedback">비밀번호를 입력해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="sex" class="form-label"><h6>성별</h6></label>
+        <select class="form-select" aria-label="sex" name="sex" required>
+          <option selected value="" disabled>선택하기</option>
+          <option value="male">남자</option>
+          <option value="female">여자</option>
+          <option value="none">선택안함</option>
+        </select>
+        <div class="invalid-feedback">성별을 선택해주세요!</div>
+      </div>
+      <div class="mb-3">
+        <label for="birth" class="form-label"><h6>생년월일</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="birth"
+          name="birth"
+          aria-describedby="birthHelp"
+          placeholder="ex)19980509"
+          required
+        />
+        <div id="birthHelp" class="form-text">
+          생년월일 8자리를 입력해주세요.
+        </div>
+        <div class="invalid-feedback">생년월일을 입력해주세요!</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="height" class="form-label"><h6>키(cm)</h6></label>
+          <input
+            type="text"
+            class="form-control"
+            id="height"
+            name="height"
+            aria-describedby="heightHelp"
+            placeholder="ex)159"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="weight" class="form-label"><h6>몸무게(kg)</h6></label>
+          <input
+            type="text"
+            class="form-control"
+            id="weight"
+            name="weight"
+            aria-describedby="weightHelp"
+            placeholder="ex)40"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="mb-2">
+          <h6>활동 강도 (운동 횟수)</h6>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="activity"
+            id="none"
+            value="none"
+            required
+          />
+          <label class="form-check-label mb-1" for="none">활동 없음</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="activity"
+            id="light"
+            value="light"
+            required
+          />
+          <label class="form-check-label mb-1" for="light"
+            >가벼운 활동 (주 1~2회)</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="activity"
+            id="moderate"
+            value="moderate"
+            required
+          />
+          <label class="form-check-label mb-1" for="moderate"
+            >적당한 활동 (주 3~5회)</label
+          >
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="activity"
+            id="high"
+            value="high"
+            required
+          />
+          <label class="form-check-label mb-1" for="high"
+            >활발한 활동 (주 6회 이상)</label
+          >
+          <div class="invalid-feedback">활동 강도를 선택해주세요!</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="bodyfat" class="form-label"><h6>체지방률(%)</h6></label>
+        <input
+          type="text"
+          class="form-control"
+          id="bodyfat"
+          name="bodyfat"
+          aria-describedby="bodyfatHelp"
+          placeholder="ex)20"
+        />
+        <div id="bodyfatHelp" class="form-text">선택사항입니다.</div>
+      </div>
+      <div class="d-flex justify-content-center my-4">
+        <button type="submit" class="btn btn-primary">가입</button>
+      </div>
+    </form>
+  </div>
+</div>

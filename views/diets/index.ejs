@@ -1,0 +1,209 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center mb-3">
+  <div class="col-6">
+    <div class="d-flex justify-content-center">
+      <h1>&#127831; <%=currentUser.name%>님의 식단</h1>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-8 col-md-3 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title me-auto">&#127859; 아침 식사</h5>
+          <a type="button" href="/add/breakfast" class="btn btn-outline-info"
+            >+</a
+          >
+        </div>
+        <div class="card-text mb-1">
+          총 열량: <%=ate.getTimeNuts('breakfast').calories%>kcal
+        </div>
+        <div class="card-text mb-1">
+          총 탄수화물: <%=ate.getTimeNuts('breakfast').carbs%>g
+        </div>
+        <div class="card-text mb-1">
+          총 단백질: <%=ate.getTimeNuts('breakfast').protein%>g
+        </div>
+        <div class="card-text mb-1">
+          총 지방: <%=ate.getTimeNuts('breakfast').fat%>g
+        </div>
+      </div>
+      <%if (ate.breakfast.foods.length>0) {%>
+      <ul class="list-group list-group-flush">
+        <%for (let food of ate.breakfast.foods) {%>
+        <a
+          href="/breakfast/show/<%=food._id%>"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        >
+          <div class="me-auto">
+            <%=food.name%> <%=food.amount%><%=food.serving%>
+          </div>
+          <div><%=food.calories%>kcal&nbsp;</div>
+        </a>
+        <%}%>
+      </ul>
+      <%}%>
+    </div>
+  </div>
+  <div class="col-8 col-md-3 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title me-auto">&#129368; 점심 식사</h5>
+          <a type="button" href="/add/lunch" class="btn btn-outline-info">+</a>
+        </div>
+        <div class="card-text mb-1">
+          총 열량: <%=ate.getTimeNuts('lunch').calories%>kcal
+        </div>
+        <div class="card-text mb-1">
+          총 탄수화물: <%=ate.getTimeNuts('lunch').carbs%>g
+        </div>
+        <div class="card-text mb-1">
+          총 단백질: <%=ate.getTimeNuts('lunch').protein%>g
+        </div>
+        <div class="card-text mb-1">
+          총 지방: <%=ate.getTimeNuts('lunch').fat%>g
+        </div>
+      </div>
+      <%if (ate.lunch.foods.length>0) {%>
+      <ul class="list-group list-group-flush">
+        <%for (let food of ate.lunch.foods) {%>
+        <a
+          href="/lunch/show/<%=food._id%>"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        >
+          <div class="me-auto">
+            <%=food.name%> <%=food.amount%><%=food.serving%>
+          </div>
+          <div><%=food.calories%>kcal&nbsp;</div>
+        </a>
+        <%}%>
+      </ul>
+      <%}%>
+    </div>
+  </div>
+  <div class="col-8 col-md-3 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title me-auto">&#127858; 저녁 식사</h5>
+          <a type="button" href="/add/dinner" class="btn btn-outline-info">+</a>
+        </div>
+        <div class="card-text mb-1">
+          총 열량: <%=ate.getTimeNuts('dinner').calories%>kcal
+        </div>
+        <div class="card-text mb-1">
+          총 탄수화물: <%=ate.getTimeNuts('dinner').carbs%>g
+        </div>
+        <div class="card-text mb-1">
+          총 단백질: <%=ate.getTimeNuts('dinner').protein%>g
+        </div>
+        <div class="card-text mb-1">
+          총 지방: <%=ate.getTimeNuts('dinner').fat%>g
+        </div>
+      </div>
+      <%if (ate.dinner.foods.length>0) {%>
+      <ul class="list-group list-group-flush">
+        <%for (let food of ate.dinner.foods) {%>
+        <a
+          href="/dinner/show/<%=food._id%>"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        >
+          <div class="me-auto">
+            <%=food.name%> <%=food.amount%><%=food.serving%>
+          </div>
+          <div><%=food.calories%>kcal&nbsp;</div>
+        </a>
+        <%}%>
+      </ul>
+      <%}%>
+    </div>
+  </div>
+  <div class="col-8 col-md-3 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title me-auto">&#127856; 간식</h5>
+          <a type="button" href="/add/snack" class="btn btn-outline-info">+</a>
+        </div>
+        <div class="card-text mb-1">
+          총 열량: <%=ate.getTimeNuts('snack').calories%>kcal
+        </div>
+        <div class="card-text mb-1">
+          총 탄수화물: <%=ate.getTimeNuts('snack').carbs%>g
+        </div>
+        <div class="card-text mb-1">
+          총 단백질: <%=ate.getTimeNuts('snack').protein%>g
+        </div>
+        <div class="card-text mb-1">
+          총 지방: <%=ate.getTimeNuts('snack').fat%>g
+        </div>
+      </div>
+      <%if (ate.snack.foods.length>0) {%>
+      <ul class="list-group list-group-flush">
+        <%for (let food of ate.snack.foods) {%>
+        <a
+          href="/snack/show/<%=food._id%>"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        >
+          <div class="me-auto">
+            <%=food.name%> <%=food.amount%><%=food.serving%>
+          </div>
+          <div><%=food.calories%>kcal</div>
+        </a>
+        <%}%>
+      </ul>
+      <%}%>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center my-5">
+    <div class="col-9 col-md-6">
+      <h1>&#128523; 오늘의 피드백</h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex">
+          <div class="me-auto">영양소</div>
+          <div>먹은것 / 권장량</div>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">칼로리</div>
+          <div>
+            <%=ate.todayInfo.calories%> / <%=currentUser.recommended.calories%>
+            kcal
+          </div>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">탄수화물</div>
+          <div>
+            <%=ate.todayInfo.carbs%> / <%=currentUser.recommended.carbs%> g
+          </div>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">당</div>
+          <div>
+            <%=ate.todayInfo.sugar%> / <%=currentUser.recommended.sugar%> g
+          </div>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">단백질</div>
+          <div>
+            <%=ate.todayInfo.protein%> / <%=currentUser.recommended.protein%> g
+          </div>
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">지방</div>
+          <div><%=ate.todayInfo.fat%> / <%=currentUser.recommended.fat%></div>
+          &nbsp;g
+        </li>
+        <li class="list-group-item d-flex">
+          <div class="me-auto">포화지방</div>
+          <div>
+            <%=ate.todayInfo.saturated%> /
+            <%=currentUser.recommended.saturated%>
+          </div>
+          &nbsp;g
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

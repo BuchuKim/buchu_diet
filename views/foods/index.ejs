@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') %>
+<div class="row justify-content-center">
+  <div class="col-10 col-md-6 mb-5">
+    <div class="d-flex justify-content-center mb-2">
+      <h1>&#x1F4D6; 음식사전</h1>
+    </div>
+    <form action="/food" method="post" class="input-group input-group-lg mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="음식 이름"
+        name="foodname"
+        aria-label="foodname"
+        aria-describedby="foodname"
+      />
+      <button class="btn btn-outline-info px-4" type="submit">검색하기</button>
+    </form>
+    <div class="d-flex justify-content-end">
+      <div class="text-muted mx-2">원하는 음식이 없나요?</div>
+      <div><a href="/food/new">음식등록</a></div>
+    </div>
+    <ul class="list-group list-group-flush mt-5 mb-4">
+      <%for (let food of foods) {%>
+      <a
+        href="/food/<%=food._id%>"
+        class="list-group-item list-group-item-action"
+        ><div class="d-flex">
+          <div class="me-auto"><%=food.name%></div>
+          <small
+            ><%=food.calories%>kcal / <%=food.amount%><%=food.serving%></small
+          >
+        </div></a
+      >
+      <%}%>
+    </ul>
+    <div class="d-flex mb-2 justify-content-center">
+      <nav>
+        <ul class="pagination">
+          <li class="page-item <%=(page===1)?"disabled":""%>">
+            <a
+              class="page-link"
+              href="/food<%=(foodname)?"/search/"+foodname:""%>?page=<%=page-1%>"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item <%=(end)?"disabled":""%>">
+            <a
+              class="page-link"
+              href="/food<%=(foodname)?"/search/"+foodname:""%>?page=<%=page+1%>"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
