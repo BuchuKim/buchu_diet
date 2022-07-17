@@ -4,7 +4,7 @@
   "description": "식단관리 사이트!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "buchu",
   "license": "ISC",
