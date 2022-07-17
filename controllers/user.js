@@ -49,7 +49,14 @@ module.exports.register = async (req, res, next) => {
     }),
     req.body.password
   );
-  req.login(newUser);
+  req.login(newUser, (err) => {
+    if (err) {
+      throw ExpressError(err, 500);
+    } else {
+      req.flash("success", "안녕히가세요!");
+      res.redirect("/user/login");
+    }
+  });
   req.flash("success", "부추의 식단관리 사이트 가입을 환영합니다!");
   res.redirect("/");
 };

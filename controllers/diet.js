@@ -9,7 +9,7 @@ module.exports.renderTodayDiet = async (req, res, next) => {
     date: dateSeoul,
   });
   if (!ate) {
-    ate = new Diet({ user: req.user._id });
+    ate = new Diet({ user: req.user._id, date: dateSeoul });
     await ate.save();
   }
   res.render("diets/index", { ate });
@@ -62,6 +62,7 @@ module.exports.addFood = async (req, res, next) => {
 };
 
 module.exports.showDiet = async (req, res, next) => {
+  const dateSeoul = moment.tz(Date.now(), "Asia/Seoul").format("YYYY-MM-DD");
   const time = req.params.time;
   const ate = await Diet.findOne({
     user: req.user._id,
@@ -74,6 +75,7 @@ module.exports.showDiet = async (req, res, next) => {
   res.render("diets/show", { food, time });
 };
 module.exports.deleteDiet = async (req, res, next) => {
+  const dateSeoul = moment.tz(Date.now(), "Asia/Seoul").format("YYYY-MM-DD");
   const time = req.params.time;
   const ate = await Diet.findOne({
     user: req.user._id,
@@ -89,6 +91,7 @@ module.exports.deleteDiet = async (req, res, next) => {
   res.redirect("/");
 };
 module.exports.updateDiet = async (req, res, next) => {
+  const dateSeoul = moment.tz(Date.now(), "Asia/Seoul").format("YYYY-MM-DD");
   const time = req.params.time;
   const amount = req.body.amount;
   const ate = await Diet.findOne({

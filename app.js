@@ -10,6 +10,7 @@ const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
 const User = require("./models/user");
 const ExpressError = require("./utils/expressError");
+require("dotenv").config();
 
 const userRoutes = require("./routes/users");
 const foodRoutes = require("./routes/foods");
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // session
 const sessionConfig = {
-  secret: "buchuMeal-session-secret!",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -48,7 +49,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 mongoose
-  .connect("mongodb://localhost:27017/foodApp")
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("식단관리 DB에 연결되었습니다!");
   })
