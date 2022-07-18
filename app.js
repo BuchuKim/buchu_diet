@@ -1,3 +1,4 @@
+// TODO : 날짜별로 식단 볼 수 있는 기능
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -30,7 +31,6 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: true,
   cookie: {
-    // default thesedays
     httpOnly: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
