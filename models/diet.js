@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const nuts = ["calories", "carbs", "sugar", "protein", "fat", "saturated"];
 
 const dietSchema = new Schema({
   user: {
@@ -114,7 +113,7 @@ dietSchema.methods.getTimeNuts = function (time) {
     sugar += food.sugar;
     protein += food.protein;
     fat += food.fat;
-    saturated = food.saturated;
+    saturated += food.saturated;
   }
   calories = Math.round(calories * 100) / 100;
   carbs = Math.round(carbs * 100) / 100;
