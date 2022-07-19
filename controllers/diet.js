@@ -114,3 +114,21 @@ module.exports.updateDiet = async (req, res, next) => {
   await ate.save();
   res.redirect(`/${time}/show/${req.params.fname}`);
 };
+
+module.exports.renderSearchDiet = (req, res) => {
+  const today = moment.tz(Date.now(), "Asia/Seoul").format("YYYY-MM-DD");
+  console.log(today);
+  res.render("diets/search", { ate: null });
+};
+
+module.exports.searchPrevDiet = async (req, res, next) => {
+  const { year, month, day } = req.body;
+  const inputDate = moment
+    .tz(new Date(year, month - 1, day), "Asia/Seoul")
+    .format("YYYY-MM-DD");
+  const ate = await Diet.findOne({
+    user: req.user._id,
+    date: inputDate,
+  });
+  res.render("diets/search", { ate, inputDate });
+};

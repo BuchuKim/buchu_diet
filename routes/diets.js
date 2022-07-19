@@ -6,6 +6,9 @@ const dietController = require("../controllers/diet");
 
 router.get("/", isLoggedIn, catchAsync(dietController.renderTodayDiet));
 
+router.get("/search", isLoggedIn, dietController.renderSearchDiet);
+router.post("/search", isLoggedIn, catchAsync(dietController.searchPrevDiet));
+
 // add food
 router.get("/add/:time", isLoggedIn, dietController.setTime);
 router.get("/addfood", isLoggedIn, catchAsync(dietController.addFood));

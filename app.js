@@ -17,7 +17,7 @@ const userRoutes = require("./routes/users");
 const foodRoutes = require("./routes/foods");
 const dietRoutes = require("./routes/diets");
 
-const port = 3000;
+const port = 3001;
 
 // Basic Setting
 app.set("view engine", "ejs");
