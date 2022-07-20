@@ -116,8 +116,7 @@ module.exports.updateDiet = async (req, res, next) => {
 };
 
 module.exports.renderSearchDiet = (req, res) => {
-  const today = moment.tz(Date.now(), "Asia/Seoul").format("YYYY-MM-DD");
-  res.render("diets/search", { ate: null });
+  res.render("diets/search", { ate: null, inputDate: null });
 };
 
 module.exports.searchPrevDiet = async (req, res, next) => {
