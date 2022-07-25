@@ -91,7 +91,6 @@ module.exports.validateUser = (req, res, next) => {
   }
 };
 module.exports.validateEditUser = (req, res, next) => {
-  req.body.bodyfat === "" ? delete req.body.bodyfat : null;
   const { error } = userEditSchema.validate(req.body);
   if (error) {
     const message = error.details.map((el) => el.message).join(",");

@@ -53,7 +53,7 @@ userSchema.virtual("BMR").get(function () {
   } else {
     return (
       Math.round(
-        (66.47 + 13.75 * this.weight + 5 * this.height + 6.76 * this.age) * 100
+        (66.47 + 13.75 * this.weight + 5 * this.height - 6.76 * this.age) * 100
       ) / 100
     );
   }

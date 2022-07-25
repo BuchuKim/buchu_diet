@@ -38,7 +38,7 @@ const foodSchema = new Schema({
 });
 
 foodSchema.methods.getNuts = function (amount) {
-  let [calories, carbs, protein, fat] = [0, 0, 0, 0];
+  let [calories, carbs, sugar, protein, fat, saturated] = [0, 0, 0, 0];
   if (this.serving === "개" || this.serving === "회") {
     calories = Math.round(this.calories * amount * 100) / 100;
     carbs = Math.round(this.carbs * amount * 100) / 100;
